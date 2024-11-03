@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bounce 弹球游戏</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .game-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        .game-area {
+            flex: 1;
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        canvas {
+            border: 3px solid #3498db;
+            border-radius: 5px;
+            background-color: #fff;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .game-info {
+            width: 250px;
+            padding: 20px;
+            background-color: #34495e;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .info-box {
+            background-color: #2c3e50;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            color: #3498db;
+            font-size: 1.5em;
+        }
+
+        .score {
+            font-size: 2em;
+            color: #2ecc71;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        .control-key {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            margin-right: 5px;
+            font-weight: bold;
+        }
+
+        .high-scores {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .high-scores li {
+            padding: 5px 0;
+            border-bottom: 1px solid #3498db;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .game-title {
+            text-align: center;
+            color: #3498db;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="game-title">Bounce 弹球游戏</h1>
+    <div class="game-container">
+        <div class="game-area">
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+        </div>
+        <div class="game-info">
+            <div class="info-box">
+                <h2>当前分数</h2>
+                <div class="score" id="currentScore">0</div>
+            </div>
+            
+            <div class="info-box">
+                <h2>游戏信息</h2>
+                <div>关卡: <span id="currentLevel">1</span></div>
+                <div>生命值: <span id="lives">3</span></div>
+                <div>收集星星: <span id="starsCollected">0</span>/<span id="totalStars">0</span></div>
+            </div>
+
+            <div class="info-box">
+                <h2>最高分</h2>
+                <ul class="high-scores" id="highScores">
+                    <li><span>1. AAA</span><span>1000</span></li>
+                    <li><span>2. BBB</span><span>800</span></li>
+                    <li><span>3. CCC</span><span>600</span></li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h2>操作说明</h2>
+                <div class="controls">
+                    <p><span class="control-key">←</span> <span class="control-key">→</span> 左右移动</p>
+                    <p><span class="control-key">↑</span> 或 <span class="control-key">空格</span> 跳跃</p>
+                    <p><span class="control-key">P</span> 暂停游戏</p>
+                    <p><span class="control-key">R</span> 重新开始</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html> 
